@@ -1,4 +1,4 @@
-(defproject motiva/wait-for "0.1.0"
+(defproject motiva/wait-for "0.2.0-SNAPSHOT"
   :description "Test helper used all over Motiva code"
   :url "https://github.com/Motiva-AI/wait-for"
   :license {:name "Eclipse Public License"
