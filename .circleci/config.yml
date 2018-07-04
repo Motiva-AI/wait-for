@@ -21,6 +21,10 @@ jobs:
             - ~/.m2
 
       - run:
+          name: Run tests
+          command: lein test
+
+      - run:
           name: Build Jar
           command: lein jar
 
