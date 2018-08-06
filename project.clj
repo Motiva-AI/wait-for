@@ -1,8 +1,8 @@
 (defproject motiva/wait-for "0.2.0-SNAPSHOT"
   :description "Test helper used all over Motiva code"
   :url "https://github.com/Motiva-AI/wait-for"
-  :license {:name "Eclipse Public License"
-            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :license {:name "MIT License"
+            :url "https://opensource.org/licenses/MIT"}
   :dependencies [[org.clojure/clojure "1.9.0"]]
   :profiles {:dev {:plugins [[s3-wagon-private "1.3.1"]]}}
   ;; Use the chained credential provider - env credentials or a profile (set
