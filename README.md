@@ -1,5 +1,7 @@
 # wait-for
 
+[![CircleCI](https://circleci.com/gh/Motiva-AI/wait-for.svg?style=svg)](https://circleci.com/gh/Motiva-AI/wait-for)
+
 A simple but insanely useful little function for testing concurrent systems.
 
 ## Usage
@@ -19,12 +21,18 @@ wait-for.core/wait-for
   Returns nil if the timeout elapses before the predicate becomes true,
   otherwise the value of the predicate on its last evaluation.
 => nil
-user> 
+user>
 ```
+
+## Latest Version
+
+The latest release version of sqs-utils is hosted on [Clojars](https://clojars.org):
+
+[![Current Version](https://clojars.org/motiva/wait-for/latest-version.svg)](https://clojars.org/motiva/wait-for)
 
 ## License
 
+The MIT License (MIT)
+
 Copyright © 2018 Motiva Inc
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
