@@ -36,17 +36,16 @@
                 :or   {interval 3
                        timeout  120}}]
 
-  `(wait-for*
-     ~predicate
-     ~(if-not timeout-fn
-        `(assoc ~opts
-                :timeout-fn
-                #(throw
-                   (ex-info (format "Timed out waiting %d seconds for %s to become true"
-                                    ~timeout (-> ~predicate
-                                                 quote
-                                                 clojure.pprint/pprint
-                                                 with-out-str))
-                            {:predicate (quote ~predicate)
-                             :timeout   ~timeout})))
-        ~opts)))
+  `(if-let [timeout-fn# (quote ~timeout-fn)]
+     (wait-for* ~predicate ~opts)
+     (let [timeout-fn#
+           (fn []
+             (throw
+               (ex-info (format "Timed out waiting %d seconds for %s to become true"
+                                ~timeout (-> (quote ~predicate)
+                                             clojure.pprint/pprint
+                                             with-out-str))
+                        {:predicate (quote ~predicate)
+                         :timeout   ~timeout})))]
+       (wait-for* ~predicate
+                  (assoc ~opts :timeout-fn timeout-fn#)))))
