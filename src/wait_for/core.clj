@@ -27,7 +27,10 @@
   an `(ex-info ...)` with a useful message.
 
   Setting `timeout-fn` explicitly to `false` cause the results of the
-  last call to `predicate` to be returned."
+  last call to `predicate` to be returned regardless. This allows the
+  following form to work as expected in tests:
+
+      (is (wait-for #(< (rand) 0.2) :interval 1 :timeout 10))"
   [predicate & {:as   opts
                 :keys [interval timeout timeout-fn]
                 :or   {interval 3
