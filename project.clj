@@ -1,4 +1,4 @@
-(defproject motiva/wait-for "0.3.0-SNAPSHOT"
+(defproject motiva/wait-for "0.3.0"
   :description "Test helper used all over Motiva code"
   :url "https://github.com/Motiva-AI/wait-for"
   :license {:name "MIT License"
