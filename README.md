@@ -19,12 +19,15 @@ Macro
 
       (wait-for #(< (rand) 0.2) :interval 1 :timeout 10)
 
-  Returns nil if the timeout elapses before the predicate becomes true,
-  otherwise the value of the predicate on its last evaluation.
-
   Optionally takes a `:timeout-fn` key the value of which will be
   called when the timeout occurs. The default behaviour is to throw
   an `(ex-info ...)` with a useful message.
+
+  Setting `timeout-fn` explicitly to `false` cause the results of the
+  last call to `predicate` to be returned regardless. This allows the
+  following form to work as expected in tests:
+
+      (is (wait-for #(< (rand) 0.2) :interval 1 :timeout 10))
 => nil
 user>
 ```
