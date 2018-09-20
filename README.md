@@ -34,7 +34,7 @@ user>
 
 ## Latest Version
 
-The latest release version of sqs-utils is hosted on [Clojars](https://clojars.org):
+The latest release version of wait-for is hosted on [Clojars](https://clojars.org):
 
 [![Current Version](https://clojars.org/motiva/wait-for/latest-version.svg)](https://clojars.org/motiva/wait-for)
 
