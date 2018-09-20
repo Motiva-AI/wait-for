@@ -2,7 +2,7 @@
 
 [![CircleCI](https://circleci.com/gh/Motiva-AI/wait-for.svg?style=svg)](https://circleci.com/gh/Motiva-AI/wait-for)
 
-A simple but insanely useful little function for testing concurrent systems.
+A simple but insanely useful little macro for testing concurrent systems.
 
 ## Usage
 
@@ -12,7 +12,8 @@ user> (require '[wait-for.core :refer [wait-for]])
 user> (doc wait-for)
 -------------------------
 wait-for.core/wait-for
-([predicate & {:keys [interval timeout timeout-fn], :or {interval 3, timeout 120, timeout-fn (fn* [] (throw (ex-info "Timed out waiting for condition" {:predicate predicate, :timeout timeout})))}}])
+([predicate & {:as opts, :keys [interval timeout timeout-fn], :or {interval 3, timeout 120}}])
+Macro
   Invoke predicate every interval (default 3) seconds until it returns true,
   or timeout (default 120) seconds have elapsed. E.g.:
 
@@ -20,6 +21,10 @@ wait-for.core/wait-for
 
   Returns nil if the timeout elapses before the predicate becomes true,
   otherwise the value of the predicate on its last evaluation.
+
+  Optionally takes a `:timeout-fn` key the value of which will be
+  called when the timeout occurs. The default behaviour is to throw
+  an `(ex-info ...)` with a useful message.
 => nil
 user>
 ```
